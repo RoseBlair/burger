@@ -1,6 +1,13 @@
 var mysql = require("mysql");
 
-var connection = mysql.createConnection();
+
+var connection = mysql.createConnection({
+    host: "localhost",
+    port: 3306,
+    user: "root", 
+    password: "Rosebud1984",
+    database: "burgers_db"
+});
 
 connection.connect(function(err) {
     if (err) {
@@ -8,8 +15,7 @@ connection.connect(function(err) {
         return;
     }
 
-    console.log("connected as id " + thread.id);
+    console.log("connected");
 });
 
-module.exports = config;
 
