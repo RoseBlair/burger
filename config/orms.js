@@ -1,6 +1,6 @@
 var connection = require("../config/connection.js");
 
-// function pushes new array to .
+// function pushes updates into new array.
 function printQuestionMarks(num) {
     var arr = [];
     for (var i = 0; i < num; i++) {
