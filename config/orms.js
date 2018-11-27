@@ -1,6 +1,6 @@
 var connection = require("../config/connection.js");
 
-// Helper function for SQL syntax.
+// function pushes new array to .
 function printQuestionMarks(num) {
     var arr = [];
     for (var i = 0; i < num; i++) {
@@ -9,29 +9,28 @@ function printQuestionMarks(num) {
     return arr.toString();
 }
 
-// Helper function to convert object key/value pairs to SQL syntax
+// key/value pairs according to Sequel syntax
 function objToSql(ob) {
     var arr = [];
-    // loop through the keys and push the key/value as a string int arr
+    // iterates through key/value pairs in object and changes value
     for (var key in ob) {
         var value = ob[key];
-        // check to skip hidden properties
+        // skips properties that aren't apparent 
         if (Object.hasOwnProperty.call(ob, key)) {
-            // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
+            // adds quotation marks around any string with spaces
             if (typeof value === "string" && value.indexOf(" ") >= 0) {
                 value = "'" + value + "'";
             }
-            // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
-            // e.g. {sleepy: true} => ["sleepy=true"]
+            // puts booleans into string form
             arr.push(key + "=" + value);
         }
     }
-    // translate array of strings to a single comma-separated string
+    // array becomes a string
     return arr.toString();
 }
 
 var orm = {
-    // Display all burgers in the db.
+    // displays burgers
     selectAll: function(table, cb) {
         var queryString = "SELECT * FROM " + table + ";";
 
@@ -42,7 +41,7 @@ var orm = {
             cb(result);
         });
     },
-    // Add a burger to the db.
+    // Adds burger to database
     insertOne: function(table, cols, vals, cb) {
         var queryString = "INSERT INTO " + table;
         queryString += " (";
@@ -61,7 +60,7 @@ var orm = {
             cb(result);
         });
     },
-    // Set burger devoured status to true.
+    // eaten equals true.
     updateOne: function(table, objColVals, condition, cb) {
         var queryString = "UPDATE " + table;
         queryString += " SET ";
@@ -78,7 +77,7 @@ var orm = {
             cb(result);
         });
     },
-    // Delete a burger from the db.
+    // deletes burger
     deleteOne: function(table, condition, cb) {
         var queryString = "DELETE FROM " + table;
         queryString += " WHERE ";

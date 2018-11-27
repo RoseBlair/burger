@@ -1,6 +1,6 @@
 var express = require("express");
 
-var PORT = process.PORT || 3306;
+var PORT = process.PORT || 3000;
 
 var path = require("path");
 
@@ -23,5 +23,5 @@ var routes = require("./controllers/burgers_controllers");
 app.use(routes);
 
 app.listen((PORT, function() {
-    console.log("server listening on port" + PORT);
+    console.log("server listening on port " + PORT);
 }));

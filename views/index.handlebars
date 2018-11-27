@@ -28,26 +28,19 @@
 
 <div class="row">
 <div class="col-sm-6">.col-sm-4</div>
-
-
     <div><strong>New Burgers</strong></div>
                 <div>
                     <ul>
-                        {{#each burgers}}
+                        {{#each burger}}
                             {{#unless devoured}}
                                 <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
-                                <button type="button" class="eatburger btn btn-success" id ="eatbutton" data-id="{{this.id}}" data-newDevoured="{{devour}}"><span class="fa fa-cutlery"></span></button>
+                                <button type="button" class="eatIt btn btn-success" id ="eatIt" data-id="{{this.id}}" data-newDevoured="{{devour}}"><span></span></button>
                                 <hr>
                             {{/unless}}
                         {{/each}}
                     </ul>
                 </div>
             </div>
-
-
-
-
-
 
 
 <div class="col-sm-6">.col-sm-8</div>
@@ -57,10 +50,10 @@
         <div>
             <div><strong>Eaten Burgers</strong></div>
                     <ul>
-                        {{#each burgers}}
+                        {{#each burger}}
                             {{#if devoured}}
                                 <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
-                                <button type="button" class="trashburger btn btn-warning" id ="trashbutton" data-id="{{this.id}}" data-newDevoured="{{devour}}"><span class="fa fa-trash"></span></button>
+                                <button type="button" class="deleteBurger btn btn-warning" id ="deleteBurger" data-id="{{this.id}}" data-newDevoured="{{devour}}"><span></span></button>
                                 <hr>
                             {{/if}}
                         {{/each}}

@@ -52,7 +52,7 @@ router.delete("/api/burgers/:id", function(req, res) {
 
     burger.deleteOne(condition, function(result) {
         if (result.changedRows === 0) {
-            // If no rows were changed, then the ID must not exist, so 404.
+            // When no rows are changed, error message
             return res.status(404).end();
         } else {
             res.status(200).end();
