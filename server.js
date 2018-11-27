@@ -1,14 +1,14 @@
 var express = require("express");
 
-var PORT = process.PORT || 3000;
+var PORT = process.env.PORT || 8080;
 
-var path = require("path");
+// var path = require("path");
 
 var app = express();
 
 var bodyParser = require("body-parser");
 
-app.use(bodyParser.urlencoded( { extended: true}));
+app.use(bodyParser.urlencoded( { extended: true }));
 
 app.use(bodyParser.json());
 
@@ -24,6 +24,6 @@ app.use(routes);
 
 app.use(express.static("public"));
 
-app.listen((PORT, function() {
+app.listen(PORT, function() {
     console.log("server listening on port " + PORT);
-}));
+});

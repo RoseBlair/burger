@@ -17,12 +17,14 @@
   },
   "homepage": "https://github.com/RoseBlair/burger#readme",
   "dependencies": {
+    "ajax": "0.0.4",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
     "mysql": "^2.16.0",
     "node": "^11.2.0",
     "nodemon": "^1.18.6",
+    "routes": "^2.1.0",
     "sequelize": "^4.41.2"
   }
 }

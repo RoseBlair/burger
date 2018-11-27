@@ -19,7 +19,7 @@
     <p class="lead">Make a burger and devour it.</p>
     <div class="form-group">
         <input class="btn btn-primary" type="submit" id="addburger" value="Submit">       
-        <label for="thisInput">Burger Input</label>
+        <label for="thisInput">What kind of burger are you having?</label>
         <textarea class="form-control" id="inputBurger" name="burger" rows="1"></textarea>
     </div>
   </div>
@@ -27,9 +27,9 @@
 
 
 <div class="row">
-<div class="col-sm-6">.col-sm-4</div>
+<div class="col-sm-6">
     <div><strong>New Burgers</strong></div>
-                <div>
+                
                     <ul>
                         {{#each burger}}
                             {{#unless devoured}}
@@ -39,16 +39,17 @@
                             {{/unless}}
                         {{/each}}
                     </ul>
-                </div>
-            </div>
+    
+</div>
 
 
-<div class="col-sm-6">.col-sm-8</div>
+
+<div class="col-sm-6">
 
 
         <!-- Eaten burgers -->
-        <div>
-            <div><strong>Eaten Burgers</strong></div>
+        
+    <div><strong>Eaten Burgers</strong></div>
                     <ul>
                         {{#each burger}}
                             {{#if devoured}}
@@ -58,12 +59,10 @@
                             {{/if}}
                         {{/each}}
                     </ul>
-            </div>
-        </div>
-    </div>
-
+    
+</div>
 </div>
 
-</div>
+
 
 </body>
