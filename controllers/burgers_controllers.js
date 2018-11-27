@@ -1,20 +1,63 @@
-
-
+//file containing dependencies
 var express = require("express");
-burgers = require("../../db/models/burger");
 
-var app = express();
+// database functions import
+var burger = require("../models/burger.js");
 
-var PORT = process.env.PORT || 3306;
+// router
+var router = express.Router();
 
-app.use(express.urlencoded({ extended: true}));
-app.use(express.json());
+// router.get, a read function
 
-//I DON'T THINK THE BELOW CODE IS CORRECT
+router.get("/", function (req, res) {
+    burger.selectAll(function(data) {
+        var hbsObject = {
+            burgers: data
+        };
+        console.log(hbsObject);
+        res.render("index", hbsObject);
+    });
+});
 
-require("../../views/index.handlebars")(app);
-require("../../layouts/main.handlebars")(app);
+// router.post, a create function
 
-app.listen(PORT, function() {
-    console.log("App listening on PORT: " + PORT);
-  });
+router.post("/api/burgers", function (req, res) {
+    burger.insertOne(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], function(result) {
+        
+      //res.json the id of the created burger
+        res.json({ id: result.insertId });
+    });
+});
+
+//  router.put, an update function
+
+router.put("/api/burgers/:id", function(req, res) {
+    var condition = "id = " + req.params.id;
+
+    console.log("condition", condition);
+
+    burger.updateOne({ devoured: req.body.devoured }, condition, function(result) {
+        if (result.changedRows === 0) {
+            // If no rows were changed, then the ID must not exist, so 404.
+            return res.status(404).end();
+        } else {
+            res.status(200).end();
+        }
+    });
+});
+// Delete burger from db.
+router.delete("/api/burgers/:id", function(req, res) {
+    var condition = "id = " + req.params.id;
+    console.log("condition", condition);
+
+    burger.deleteOne(condition, function(result) {
+        if (result.changedRows === 0) {
+            // If no rows were changed, then the ID must not exist, so 404.
+            return res.status(404).end();
+        } else {
+            res.status(200).end();
+        }
+    });
+});
+
+module.exports = router;

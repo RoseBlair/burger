@@ -1,28 +1,39 @@
-// * Inside `burger.js`, import `orm.js` into `burger.js`
-
-
-var Sequelize = require("sequelize");
-// sequelize (lowercase) references our connection to the DB.
-var sequelize = require("../../config/orms");
-
-//     * Also inside `burger.js`, create the code that will call the ORM functions using burger specific input for the ORM.
-
-var moBurger = sequelize.define("foodTime", {
-    author: Sequelize.STRING,
-    body: Sequelize.STRING,
-    created_at: Sequelize.DATE
-});
-
-moBurger.sync();
-
-module.exports = moBurger;
 
 
 
-// console.log(orm.read("burger_name", devoured));
-// orm.create("burger_name", devoured);
-// orm.update("burger_name", devoured);
+// Import orm.js into burger.js
+var orm = require("../config/orms.js");
+// The code that will call the ORM functions using burger specific input for the ORM.
+var burger = {
+    
+    // Display burgers in the table "foodTime"
+    selectAll: function(cb) {
+        orm.selectAll("foodTime", function(res) {
+            cb(res);
+        });
+    },
 
-// //     * Export at the end of the `burger.js` file.
+    // Insers a new burger
+    insertOne: function(cols, vals, cb) {
+        orm.insertOne("foodTime", cols, vals, function(res) {
+            cb(res);
+        });
+    },
 
-// module.exports
+    // Changes the Boolean, "devoured," to 1.
+    updateOne: function(objColVals, condition, cb) {
+        orm.updateOne("foodTime", objColVals, condition, function(res) {
+            cb(res);
+        });
+    },
+
+    // Deletes burger
+    deleteOne: function(condition, cb) {
+        orm.deleteOne("foodTime", condition, function(res) {
+            cb(res);
+        });
+    }
+};
+
+// Export at the end of the burger.js file.
+module.exports = burger;

@@ -1,5 +1,8 @@
+//require mysql
+
 var mysql = require("mysql");
 
+//connect to specific database
 
 var connection = mysql.createConnection({
     host: "localhost",
@@ -18,4 +21,5 @@ connection.connect(function(err) {
     console.log("connected");
 });
 
+module.exports = connection;
 
