@@ -22,6 +22,8 @@ var routes = require("./controllers/burgers_controllers");
 
 app.use(routes);
 
+app.use(express.static("public"));
+
 app.listen((PORT, function() {
     console.log("server listening on port " + PORT);
 }));
