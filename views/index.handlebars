@@ -6,7 +6,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <!-- CSS link -->
-        <link rel="stylesheet" type="text/css" href="../public/assets/css/burger_style.css"/>
+        {{!-- <link rel="stylesheet" type="text/css" href="../public/assets/css/burger_style.css"/> --}}
         <!-- jQuery link -->
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     </head>
@@ -31,7 +31,7 @@
     <div><strong>New Burgers</strong></div>
                 
                     <ul>
-                        {{#each burger}}
+                        {{#each burgers}}
                             {{#unless devoured}}
                                 <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
                                 <button type="button" class="eatIt btn btn-success" id ="eatIt" data-id="{{this.id}}" data-newDevoured="{{devour}}"><span></span></button>
@@ -51,7 +51,7 @@
         
     <div><strong>Eaten Burgers</strong></div>
                     <ul>
-                        {{#each burger}}
+                        {{#each burgers}}
                             {{#if devoured}}
                                 <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
                                 <button type="button" class="deleteBurger btn btn-warning" id ="deleteBurger" data-id="{{this.id}}" data-newDevoured="{{devour}}"><span></span></button>
