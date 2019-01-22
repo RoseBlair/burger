@@ -22,10 +22,10 @@ router.get("/", function (req, res) {
 // router.post, a create function
 
 router.post("/api/burgers", function (req, res) {
-    burger.insertOne(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], function(result) {
-        
-      //res.json the id of the created burger
-        res.json({ id: result.insertId });
+    console.log("req.body" , req.body);
+    burger.create(req.body.burger_name, function(result) {
+        console.log(result);
+        res.redirect("/");
     });
 });
 

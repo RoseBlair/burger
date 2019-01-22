@@ -2,6 +2,12 @@
 var orm = require("../config/orms.js");
 // The code that will call the ORM functions using burger specific input for the ORM.
 var burger = {
+
+    create: function(name, cb) {
+        orm.create("foodTime", ["burger_name", "devoured"], [name, false], cb);
+    },
+    
+
     // Display burgers in the table "foodTime"
     selectAll: function(cb) {
         orm.selectAll("foodTime", function(res) {
