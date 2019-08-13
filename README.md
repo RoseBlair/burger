@@ -7,4 +7,6 @@ Enter the name of a new burger to put it on your plate. Click a button to devour
 
 This app uses handlebars, jQuery, Node, sequel, and Express. 
 
-To play, click this link to be directed to Heroku: https://stormy-forest-77969.herokuapp.com/
+#Demo
+
+To play demo, click this link: https://stormy-forest-77969.herokuapp.com/
