@@ -1,6 +1,6 @@
 # Burger Game
 
-![Burger Game](https://www.flickr.com/photos/183376787@N05/48529425126/in/dateposted-public/)
+![Burger Game](https://flic.kr/p/2gWnZmj)
 
  
 Enter the name of a new burger to put it on your plate. Click a button to devour it. 
