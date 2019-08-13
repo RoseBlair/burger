@@ -1,6 +1,6 @@
 # Burger
 
-![Burger](https://live.staticflickr.com/65535/48529182271_974e25d8ab_m.jpg)
+![Burger](https://live.staticflickr.com/65535/48529206811_ee29b3a827_m.jpg)
 
 Enter the name of a new burger to put it on your plate. Click a button to devour it. 
 
